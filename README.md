@@ -4,7 +4,7 @@ This project builds a docker container for the ESP8266 SoC SDK. It builds the wh
 Usage:
 - Install docker: http://docker.io/
 - ./docker-build
-- You can now use the docker image to build your project. For more info, refer to  https://github.com/nevers/esp-blinky-docker/ or https://github.com/nevers/esp-httpd-docker/
+- You can now use the docker image to build your project. For more info, refer to  [esp-blinky-docker](https://github.com/nevers/esp-blinky-docker/) or [esp-httpd-docker](https://github.com/nevers/esp-httpd-docker/)
 
 Reference schematic for flashing your code to the chip:
 ![Schematic](schematics/esp8266.png)
