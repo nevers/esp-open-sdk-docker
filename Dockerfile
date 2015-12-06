@@ -26,13 +26,12 @@ RUN apt-get update && apt-get install -y \
 
 # Building the SDK as root is not allowed, so we add a user for it.
 RUN adduser --system --no-create-home builder
-
 RUN chown builder /opt
 USER builder
 WORKDIR /opt
 RUN git clone --recursive https://github.com/pfalcon/esp-open-sdk.git
-
 WORKDIR /opt/esp-open-sdk
+RUN git reset --hard 075cfb052953471474b0048e87ac3f53d47e1450
 
 RUN make STANDALONE=n
 
@@ -42,5 +41,6 @@ RUN python setup.py install
 
 WORKDIR /opt
 ENV PATH /opt/esp-open-sdk/xtensa-lx106-elf/bin:/opt/esp-open-sdk/esptool/:$PATH
-ENV SDK_BASE /opt/esp-open-sdk/esp_iot_sdk_v1.2.0
+ENV SDK_BASE /opt/esp-open-sdk/esp_iot_sdk_v1.4.0
 ENV XTENSA_TOOLS /opt/esp-open-sdk/xtensa-lx106-elf/bin
+ENV DEFAULT_BAUDRATE 115200
