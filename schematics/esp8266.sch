@@ -93,12 +93,6 @@ Text GLabel 3350 2450 2    60   Input ~ 0
 RX
 Text GLabel 3350 2550 2    60   Input ~ 0
 TX
-Text GLabel 3350 2650 2    60   Input ~ 0
-3V3
-Text GLabel 3350 2750 2    60   Input ~ 0
-CTS
-Text GLabel 3350 2850 2    60   Input ~ 0
-GND
 $Comp
 L +3.3V #PWR1
 U 1 1 56647E1F
@@ -242,8 +236,6 @@ DTR
 Wire Wire Line
 	3250 2850 3350 2850
 Wire Wire Line
-	3250 2750 3350 2750
-Wire Wire Line
 	3250 2650 3350 2650
 Wire Wire Line
 	3250 2550 3350 2550
@@ -313,4 +305,19 @@ Wire Wire Line
 	4450 2800 4550 2800
 Wire Wire Line
 	4550 2600 4050 2600
+Wire Wire Line
+	3250 2750 3350 2750
+NoConn ~ 3350 2650
+NoConn ~ 3350 2750
+$Comp
+L GND #PWR?
+U 1 1 5665525F
+P 3350 2850
+F 0 "#PWR?" H 3350 2600 50  0001 C CNN
+F 1 "GND" H 3350 2700 50  0000 C CNN
+F 2 "" H 3350 2850 50  0000 C CNN
+F 3 "" H 3350 2850 50  0000 C CNN
+	1    3350 2850
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
