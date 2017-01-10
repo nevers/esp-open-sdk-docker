@@ -1,5 +1,5 @@
-FROM ubuntu:14.04
-RUN apt-get update && apt-get install -y \
+FROM ubuntu:16.10
+RUN apt update && apt install -y \
     autoconf \
     automake \
     bison \
@@ -10,19 +10,23 @@ RUN apt-get update && apt-get install -y \
     gcc \
     git \
     gperf \
+    help2man \
     libexpat-dev \
     libtool \
+    libtool-bin \
     make \
-    ncurses-dev \
     nano \
+    ncurses-dev \
     python \
+    python-dev \
     python-pip \
+    python-serial \
+    screen \
     sed \
     texinfo \
     unrar-free \
     unzip \
-    wget \
-    screen
+    wget
 
 # Building the SDK as root is not allowed, so we add a user for it.
 RUN adduser --system --no-create-home builder
@@ -31,9 +35,9 @@ USER builder
 WORKDIR /opt
 RUN git clone --recursive https://github.com/pfalcon/esp-open-sdk.git
 WORKDIR /opt/esp-open-sdk
-RUN git reset --hard 075cfb052953471474b0048e87ac3f53d47e1450
+RUN git reset --hard e8d757b1a70a5cf19df0afe23a769739c6cff343
 
-RUN make STANDALONE=n
+RUN make STANDALONE=y
 
 USER root
 WORKDIR /opt/esp-open-sdk/esptool
